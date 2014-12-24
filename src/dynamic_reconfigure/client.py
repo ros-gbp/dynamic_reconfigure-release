@@ -46,6 +46,7 @@ import rosservice
 import sys
 import threading
 import time
+import types
 from dynamic_reconfigure import DynamicReconfigureParameterException
 from dynamic_reconfigure.srv import Reconfigure as ReconfigureSrv
 from dynamic_reconfigure.msg import Config as ConfigMsg
@@ -176,7 +177,7 @@ class Client(object):
 
         # Cast the parameters to the appropriate types
         if self.param_description is not None:
-            for name, value in changes.items()[:]:
+            for name, value in list(changes.items())[:]:
                 if not name is 'groups':
                     dest_type = self._param_types.get(name)
                     if dest_type is None:
@@ -200,9 +201,15 @@ class Client(object):
                                     changes[name] = val_type(const['value'])
                                     found = True
                         if not found:
-                            changes[name] = dest_type(value)
+                            if sys.version_info.major < 3:
+                                if type(value) is unicode:
+                                    changes[name] = unicode(value)
+                                else:
+                                    changes[name] = dest_type(value)
+                            else:
+                                changes[name] = dest_type(value)
 
-                    except ValueError, e:
+                    except ValueError as e:
                         raise DynamicReconfigureParameterException('can\'t set parameter \'%s\' of %s: %s' % (name, str(dest_type), e))
 
         if 'groups' in changes.keys():
@@ -228,7 +235,7 @@ class Client(object):
 
         groups = []
         def update_state(group, description):
-            for p,g in enumerate(description['groups']):
+            for p,g in description['groups'].items():
                 if g['name'] == group:
                     description['groups'][p]['state'] = changes[group]
                 else:
