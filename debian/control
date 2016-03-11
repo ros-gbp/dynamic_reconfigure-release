@@ -1,0 +1,12 @@
+Source: ros-kinetic-dynamic-reconfigure
+Section: misc
+Priority: extra
+Maintainer: Mikael Arguedas <mikael@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), libboost-all-dev, ros-kinetic-catkin (>= 0.5.87), ros-kinetic-message-generation, ros-kinetic-roscpp, ros-kinetic-roscpp-serialization, ros-kinetic-rostest, ros-kinetic-std-msgs
+Homepage: http://ros.org/wiki/dynamic_reconfigure
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-dynamic-reconfigure
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libboost-all-dev, ros-kinetic-message-runtime, ros-kinetic-roscpp, ros-kinetic-roslib, ros-kinetic-rospy, ros-kinetic-rosservice, ros-kinetic-std-msgs
+Description: This unary stack contains the dynamic_reconfigure package which provides a means to change node parameters at any time without having to restart the node.
