@@ -2,6 +2,11 @@
 Changelog for package dynamic_reconfigure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.5.40 (2016-03-11)
+-------------------
+* updated maintainer
+* Contributors: Mikael Arguedas
+
 1.5.39 (2015-04-22)
 -------------------
 * Better error message, to fix `#32 <https://github.com/ros/dynamic_reconfigure/issues/32>`_
