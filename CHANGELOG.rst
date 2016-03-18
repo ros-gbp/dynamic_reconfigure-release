@@ -2,6 +2,28 @@
 Changelog for package dynamic_reconfigure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.5.42 (2016-03-15)
+-------------------
+* fix Python environment to make it work on the first run `#59 <https://github.com/ros/dynamic_reconfigure/issues/59>`_
+* Contributors: Dirk Thomas
+
+1.5.41 (2016-03-14)
+-------------------
+* fix Python environment to make it work on the first run `#58 <https://github.com/ros/dynamic_reconfigure/issues/58>`_ 
+* Contributors: Dirk Thomas, Mikael Arguedas
+
+1.5.40 (2016-03-11)
+-------------------
+* updated maintainer
+* Contributors: Mikael Arguedas
+
+1.5.39 (2015-04-22)
+-------------------
+* Better error message, to fix `#32 <https://github.com/ros/dynamic_reconfigure/issues/32>`_
+* Make Python callback code consistent with the C++ API
+* Commented unused parameters to avoid compile warnings
+* Contributors: Esteve Fernandez, Morgan Quigley
+
 1.5.38 (2014-12-23)
 -------------------
 * Fixes `#35 <https://github.com/ros/dynamic_reconfigure/issues/35>`_ by setting queue_size to 10 for publishers.
