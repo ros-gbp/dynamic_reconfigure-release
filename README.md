@@ -1,3 +1,26 @@
+## dynamic_reconfigure (jade) - 1.5.42-0
+
+The packages in the `dynamic_reconfigure` repository were released into the `jade` distro by running `/usr/bin/bloom-release dynamic_reconfigure -r jade -t jade` on `Fri, 18 Mar 2016 16:25:19 -0000`
+
+The `dynamic_reconfigure` package was released.
+
+Version of package(s) in repository `dynamic_reconfigure`:
+
+- upstream repository: https://github.com/ros/dynamic_reconfigure.git
+- release repository: https://github.com/ros-gbp/dynamic_reconfigure-release.git
+- rosdistro version: `1.5.39-2`
+- old version: `1.5.39-2`
+- new version: `1.5.42-0`
+
+Versions of tools used:
+
+- bloom version: `0.5.21`
+- catkin_pkg version: `0.2.10`
+- rosdep version: `0.11.4`
+- rosdistro version: `0.4.5`
+- vcstools version: `0.1.38`
+
+
 ## dynamic_reconfigure (kinetic) - 1.5.42-0
 
 The packages in the `dynamic_reconfigure` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release dynamic_reconfigure -t kinetic -r kinetic` on `Tue, 15 Mar 2016 21:53:20 -0000`
