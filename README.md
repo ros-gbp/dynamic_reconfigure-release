@@ -1,3 +1,26 @@
+## dynamic_reconfigure (lunar) - 1.5.46-0
+
+The packages in the `dynamic_reconfigure` repository were released into the `lunar` distro by running `/usr/bin/bloom-release dynamic_reconfigure --track lunar --rosdistro lunar --new-track` on `Thu, 23 Feb 2017 01:41:03 -0000`
+
+The `dynamic_reconfigure` package was released.
+
+Version of package(s) in repository `dynamic_reconfigure`:
+
+- upstream repository: https://github.com/ros/dynamic_reconfigure.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `1.5.46-0`
+
+Versions of tools used:
+
+- bloom version: `0.5.23`
+- catkin_pkg version: `0.3.1`
+- rosdep version: `0.11.5`
+- rosdistro version: `0.6.1`
+- vcstools version: `0.1.39`
+
+
 ## dynamic_reconfigure (indigo) - 1.5.46-0
 
 The packages in the `dynamic_reconfigure` repository were released into the `indigo` distro by running `/usr/bin/bloom-release dynamic_reconfigure -r indigo -t indigo` on `Tue, 15 Nov 2016 15:29:59 -0000`
