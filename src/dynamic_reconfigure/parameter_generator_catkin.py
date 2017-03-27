@@ -62,6 +62,20 @@ double_t = "double"
 
 id = 0
 
+
+def check_description(description):
+    quotes = ['"', "'"]
+    for quote in quotes:
+        if description.find(quote) != -1:
+            raise Exception(r"""quotes not allowed in description string `%s`""" % description)
+
+
+def check_name(name):
+    pattern = r'^[a-zA-Z][a-zA-Z0-9_]*$'
+    if not re.match(pattern, name):
+        raise Exception("The name of field \'%s\' does not follow the ROS naming conventions, see http://wiki.ros.org/ROS/Patterns/Conventions"%name)
+
+
 class ParameterGenerator:
     minval = {
             'int' : -0x80000000, #'INT_MIN',
@@ -126,10 +140,7 @@ class ParameterGenerator:
             }
             if type == str_t and (max != None or min != None):
                 raise Exception("Max or min specified for %s, which is of string type"%name)
-            pattern = r'^[a-zA-Z][a-zA-Z0-9_]*$'
-            if not re.match(pattern, name):
-                raise Exception("The name of field \'%s\' does not follow the ROS naming conventions, see http://wiki.ros.org/ROS/Patterns/Conventions"%name)
-
+            check_name(name)
             self.gen.fill_type(newparam)
             self.gen.check_type_fill_default(newparam, 'default', self.gen.defval[paramtype])
             self.gen.check_type_fill_default(newparam, 'max', self.gen.maxval[paramtype])
@@ -265,6 +276,8 @@ Have a nice day
                 'srcfile' : inspect.getsourcefile(inspect.currentframe().f_back.f_code),
                 'description' : descr
                 }
+        check_name(name)
+        check_description(descr)
         self.fill_type(newconst)
         self.check_type(newconst, 'value')
         self.constants.append(newconst)
@@ -273,6 +286,7 @@ Have a nice day
     def enum(self, constants, description):
         if len(set(const['type'] for const in constants)) != 1:
             raise Exception("Inconsistent types in enum!")
+        check_description(description)
         return repr({ 'enum' : constants, 'enum_description' : description }) 
 
     # Wrap add and add_group for the default group
@@ -561,6 +575,27 @@ $i.desc=$description $range"""
 #        print >> f, self.msgname, "config", "# What the node's configuration was actually set to."
 #        f.close()
     
+    def _rreplace_str_with_val_in_dict(self, orig_dict, old_str, new_val):
+        # Recursively replace any match of old_str by new_val in a dictionary
+        for k, v in orig_dict.items():
+            if isinstance(v, dict):
+                self._rreplace_str_with_val_in_dict(v, old_str, new_val)
+            elif isinstance(v, list):
+                for idx, i in enumerate(v):
+                    if isinstance(i, str) and i == old_str:
+                        orig_dict[k][idx] = new_val
+                    elif isinstance(i, dict):
+                        self._rreplace_str_with_val_in_dict(i, old_str, new_val)
+            elif isinstance(v, str) and v == old_str:
+                orig_dict[k] = new_val
+        return orig_dict
+
+    def replace_infinity(self, config_dict):
+        config_dict = self._rreplace_str_with_val_in_dict(config_dict, '-std::numeric_limits<double>::infinity()', -float("inf"))
+        config_dict = self._rreplace_str_with_val_in_dict(config_dict, 'std::numeric_limits<double>::infinity()', float("inf"))
+
+        return config_dict
+
     def generatepy(self):
         # Read the configuration manipulator template and insert line numbers and file name into template.
         templatefile = os.path.join(self.dynconfpath, "templates", "ConfigType.py.template")
@@ -572,8 +607,9 @@ $i.desc=$description $range"""
         # Write the configuration manipulator.
         self.mkdirabs(os.path.join(self.py_gen_dir, "cfg"))
         f = open(os.path.join(self.py_gen_dir, "cfg", self.name+"Config.py"), 'w')
+        pycfgdata = self.replace_infinity(self.group.to_dict())
         f.write(Template(template).substitute(name = self.name, 
-            pkgname = self.pkgname, pycfgdata = self.group.to_dict()))
+            pkgname = self.pkgname, pycfgdata = pycfgdata))
         for const in self.constants:
             f.write(Template("${configname}_${name} = $v\n").
                     substitute(const, v = repr(const['value']), 
