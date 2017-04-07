@@ -1,3 +1,26 @@
+## dynamic_reconfigure (kinetic) - 1.5.48-0
+
+The packages in the `dynamic_reconfigure` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release -r kinetic -t kinetic dynamic_reconfigure` on `Fri, 07 Apr 2017 14:36:16 -0000`
+
+The `dynamic_reconfigure` package was released.
+
+Version of package(s) in repository `dynamic_reconfigure`:
+
+- upstream repository: https://github.com/ros/dynamic_reconfigure.git
+- release repository: https://github.com/ros-gbp/dynamic_reconfigure-release.git
+- rosdistro version: `1.5.47-0`
+- old version: `1.5.47-0`
+- new version: `1.5.48-0`
+
+Versions of tools used:
+
+- bloom version: `0.5.26`
+- catkin_pkg version: `0.3.1`
+- rosdep version: `0.11.5`
+- rosdistro version: `0.6.1`
+- vcstools version: `0.1.39`
+
+
 ## dynamic_reconfigure (lunar) - 1.5.48-0
 
 The packages in the `dynamic_reconfigure` repository were released into the `lunar` distro by running `/usr/bin/bloom-release -r lunar -t lunar dynamic_reconfigure` on `Fri, 07 Apr 2017 14:33:32 -0000`
