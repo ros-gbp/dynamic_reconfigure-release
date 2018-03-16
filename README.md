@@ -1,3 +1,26 @@
+## dynamic_reconfigure (indigo) - 1.5.49-0
+
+The packages in the `dynamic_reconfigure` repository were released into the `indigo` distro by running `/usr/bin/bloom-release dynamic_reconfigure -r indigo -t indigo` on `Fri, 16 Mar 2018 18:47:52 -0000`
+
+The `dynamic_reconfigure` package was released.
+
+Version of package(s) in repository `dynamic_reconfigure`:
+
+- upstream repository: https://github.com/ros/dynamic_reconfigure.git
+- release repository: https://github.com/ros-gbp/dynamic_reconfigure-release.git
+- rosdistro version: `1.5.48-0`
+- old version: `1.5.48-0`
+- new version: `1.5.49-0`
+
+Versions of tools used:
+
+- bloom version: `0.6.2`
+- catkin_pkg version: `0.4.1`
+- rosdep version: `0.12.1`
+- rosdistro version: `0.6.6`
+- vcstools version: `0.1.40`
+
+
 ## dynamic_reconfigure (melodic) - 1.5.49-1
 
 The packages in the `dynamic_reconfigure` repository were released into the `melodic` distro by running `/usr/bin/bloom-release dynamic_reconfigure -r melodic -t melodic` on `Sat, 03 Mar 2018 04:43:33 -0000`
