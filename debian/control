@@ -1,0 +1,12 @@
+Source: ros-lunar-dynamic-reconfigure
+Section: misc
+Priority: extra
+Maintainer: Mikael Arguedas <mikael@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), libboost-all-dev, ros-lunar-catkin (>= 0.5.87), ros-lunar-message-generation, ros-lunar-roscpp, ros-lunar-roscpp-serialization, ros-lunar-rostest, ros-lunar-std-msgs
+Homepage: http://ros.org/wiki/dynamic_reconfigure
+Standards-Version: 3.9.2
+
+Package: ros-lunar-dynamic-reconfigure
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libboost-all-dev, ros-lunar-message-runtime, ros-lunar-roscpp, ros-lunar-roslib, ros-lunar-rospy, ros-lunar-rosservice, ros-lunar-std-msgs
+Description: This unary stack contains the dynamic_reconfigure package which provides a means to change node parameters at any time without having to restart the node.
