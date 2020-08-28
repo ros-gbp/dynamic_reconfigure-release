@@ -1,3 +1,26 @@
+## dynamic_reconfigure (noetic) - 1.7.1-1
+
+The packages in the `dynamic_reconfigure` repository were released into the `noetic` distro by running `/usr/bin/bloom-release -r noetic dynamic_reconfigure` on `Fri, 28 Aug 2020 16:19:20 -0000`
+
+The `dynamic_reconfigure` package was released.
+
+Version of package(s) in repository `dynamic_reconfigure`:
+
+- upstream repository: https://github.com/ros/dynamic_reconfigure.git
+- release repository: https://github.com/ros-gbp/dynamic_reconfigure-release.git
+- rosdistro version: `1.7.0-1`
+- old version: `1.7.0-1`
+- new version: `1.7.1-1`
+
+Versions of tools used:
+
+- bloom version: `0.9.8`
+- catkin_pkg version: `0.4.22`
+- rosdep version: `0.19.0`
+- rosdistro version: `0.8.2`
+- vcstools version: `0.1.42`
+
+
 ## dynamic_reconfigure (melodic) - 1.6.3-1
 
 The packages in the `dynamic_reconfigure` repository were released into the `melodic` distro by running `/usr/bin/bloom-release -r melodic dynamic_reconfigure` on `Thu, 19 Mar 2020 13:56:47 -0000`
