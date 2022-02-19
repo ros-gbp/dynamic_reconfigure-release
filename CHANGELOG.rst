@@ -2,19 +2,23 @@
 Changelog for package dynamic_reconfigure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.7.1 (2020-08-28)
+1.6.4 (2022-02-19)
 ------------------
-* narrow down required boost dependencies (`#160 <https://github.com/ros/dynamic_reconfigure/issues/160>`_)
-* Make Config object pickle-able in Python 3 (`#154 <https://github.com/ros/dynamic_reconfigure/issues/154>`_)
-* Fix python3 issue in a backward compatible way (`#157 <https://github.com/ros/dynamic_reconfigure/issues/157>`_)
-* import setup from setuptools instead of distutils-core (`#153 <https://github.com/ros/dynamic_reconfigure/issues/153>`_)
-* Contributors: Alejandro Hernández Cordero, Mikael Arguedas, Scott K Logan
+* fix: Race condition on quickly setting and getting config (`#188 <https://github.com/ros/dynamic_reconfigure/issues/188>`_) (`#190 <https://github.com/ros/dynamic_reconfigure/issues/190>`_)
+* Contributors: Rokus Ottervanger
 
-1.7.0 (2020-03-05)
+1.6.3 (2020-03-19)
 ------------------
-* Fixing compile error with cpp client when using -Werror=reorder. (`#118 <https://github.com/ros/dynamic_reconfigure/issues/118>`_)
-* ConfigType.h.template: fixed warnings (`#136 <https://github.com/ros/dynamic_reconfigure/issues/136>`_) (`#149 <https://github.com/ros/dynamic_reconfigure/issues/149>`_)
-* Bump CMake minimum version to use CMP0048 (`#148 <https://github.com/ros/dynamic_reconfigure/issues/148>`_)
+* Revert `#140 <https://github.com/ros/dynamic_reconfigure/issues/140>`_ (`#152 <https://github.com/ros/dynamic_reconfigure/issues/152>`_)
+* Contributors: Michael Carroll
+
+1.6.2 (2020-03-19)
+------------------
+* Set right order of SYSTEM/BEFORE options in dynamic_reconfigure-macros.cmake. Fix `#150 <https://github.com/ros/dynamic_reconfigure/issues/150>`_ (`#151 <https://github.com/ros/dynamic_reconfigure/issues/151>`_)
+* Contributors: Alexander
+
+1.6.1 (2020-03-05)
+------------------
 * Use PYTHON_EXECUTABLE to generate config headers. (`#146 <https://github.com/ros/dynamic_reconfigure/issues/146>`_)
 * Python3 compatibility (`#135 <https://github.com/ros/dynamic_reconfigure/issues/135>`_)
 * Use system on gen headers (`#140 <https://github.com/ros/dynamic_reconfigure/issues/140>`_)

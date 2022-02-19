@@ -156,6 +156,8 @@ class Client {
     configuration.__toMessage__(srv.request.config);
     if (set_service_.call(srv)) {
       configuration.__fromMessage__(srv.response.config);
+      latest_configuration_.__fromMessage__(srv.response.config);
+      received_configuration_ = true;
       return true;
     } else {
       ROS_WARN("Could not set configuration");
@@ -323,13 +325,13 @@ class Client {
   }
 
   std::string name_;
-  ros::NodeHandle nh_;
   bool received_configuration_;
   ConfigType latest_configuration_;
   bool received_description_;
   dynamic_reconfigure::ConfigDescription latest_description_;
   boost::condition_variable cv_;
   boost::mutex mutex_;
+  ros::NodeHandle nh_;
   ros::ServiceClient set_service_;
   ros::Subscriber descr_sub_;
   ros::Subscriber config_sub_;
