@@ -1,0 +1,12 @@
+Source: ros-noetic-dynamic-reconfigure
+Section: misc
+Priority: optional
+Maintainer: Michael Carroll <michael@openrobotics.org>
+Build-Depends: debhelper (>= 9.0.0), libboost-dev, ros-noetic-catkin (>= 0.5.87), ros-noetic-cpp-common, ros-noetic-message-generation, ros-noetic-roscpp, ros-noetic-roscpp-serialization, ros-noetic-rostest, ros-noetic-std-msgs
+Homepage: http://ros.org/wiki/dynamic_reconfigure
+Standards-Version: 3.9.2
+
+Package: ros-noetic-dynamic-reconfigure
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libboost-chrono-dev, libboost-dev, libboost-thread-dev, ros-noetic-message-runtime, ros-noetic-roscpp, ros-noetic-roslib, ros-noetic-rospy, ros-noetic-rosservice, ros-noetic-std-msgs
+Description: The dynamic_reconfigure package provides a means to update parameters at runtime without having to restart the node.
